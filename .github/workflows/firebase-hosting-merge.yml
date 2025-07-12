@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm install && npx tailwindcss -i ./input.css -o ./styles.css --minify
+      - run: npm install
+      - run: npm run build-tailwind # We'll define this script in package.json
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
