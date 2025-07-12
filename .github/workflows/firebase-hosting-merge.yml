@@ -11,10 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm install
-      - run: cd public && npm install # Install dependencies in public/
-      - run: chmod +x public/node_modules/.bin/tailwindcss # <--- ADD THIS NEW LINE
-      - run: cd public && npm run build-tailwind # Run build script from public/
+      - run: npm install # This will install dependencies for functions/ and trigger public/npm install via postinstall
+      - run: chmod +x public/node_modules/.bin/tailwindcss # Ensure execute permission for Tailwind CLI
+      - run: public/node_modules/.bin/tailwindcss -i public/input.css -o public/styles.css --minify # Directly run Tailwind from public/
       - uses: firebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
