@@ -13,6 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: npm install
       - run: cd public && npm install # Install dependencies in public/
+      - run: chmod +x public/node_modules/.bin/tailwindcss # <--- ADD THIS NEW LINE
       - run: cd public && npm run build-tailwind # Run build script from public/
       - uses: firebaseExtended/action-hosting-deploy@v0
         with:
