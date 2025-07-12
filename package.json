@@ -4,6 +4,19 @@
   "description": "Root package.json for project setup",
   "private": true,
   "scripts": {
+
     "postinstall": "cd public && npm install"
   }
 }
+
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-tailwind": "node_modules/.bin/tailwindcss -i ./input.css -o ./styles.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  }
+}
+
