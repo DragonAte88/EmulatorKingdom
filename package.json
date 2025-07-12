@@ -1,13 +1,9 @@
 {
-  "name": "retro-arcade-kingdom-frontend",
+  "name": "retro-arcade-kingdom-frontend-root",
   "version": "1.0.0",
-  "description": "Frontend for Retro Arcade Kingdom",
-  "main": "index.js",
+  "description": "Root package.json for project setup",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-tailwind": "npx tailwindcss -i ./input.css -o ./styles.css --minify"  <-- ADD THIS LINE
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "postinstall": "cd public && npm install"
+  }
 }
